@@ -1,26 +1,24 @@
 
 import express from "express";
-import createHttpError from "http-errors";
+// import createHttpError from "http-errors";
 import { globalErrorHandler } from "./middleware/globalErrorHandler";
+import { userRouter } from "./user/userRouter";
 
 export const app = express();
-
+//application-level middleware
+app.use(express.json());
 
 //Routes
+app.use('/api/users',userRouter)
+
 app.get('/', (req,res)=>  {
-  const error = createHttpError(400,'erroring');
-  throw error
+  //const error = createHttpError(400,'erroring');
+  //throw error
   res.status(200).send({message:'success get route response'})
 });
 
-//Global error handler
+
+//Global error-handler
 app.use(globalErrorHandler);
-// app.use((err: HttpError, req: Request, res: Response, next: NextFunction)=> {
-//   const statsCode =  err.statusCode || 500;
-//   return res.status(statsCode).json({
-//     message : err.message,
-//     errorStack : config.env === 'dev'? err.stack : ''
-//   });
-// });
 
 //mongodb+srv://akshaykrishna24996:pass24996@cluster0.5ku6c.mongodb.net/
