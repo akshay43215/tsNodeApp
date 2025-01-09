@@ -11,7 +11,7 @@ export const connectDB = async()=> {
         mongoose.connection.on('disconnecting', () => console.log('disconnecting'));
         mongoose.connection.on('close', () => console.log('close'));
         
-        await mongoose.connect(config.databaseUrl as string)// make sure this connection below after all listeners
+        await mongoose.connect(config.databaseUrl as string)// make sure connection below after all listeners
     } catch (error) {
         console.error(`failed to connect db url : ${error}`)
         process.exit(1);
