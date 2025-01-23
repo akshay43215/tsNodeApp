@@ -12,4 +12,3 @@ const startServer = async()=> {
 
 startServer();       
 
-console.log('app is running');

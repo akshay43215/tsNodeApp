@@ -5,20 +5,17 @@ import { globalErrorHandler } from "./middleware/globalErrorHandler";
 import { userRouter } from "./user/userRouter";
 
 export const app = express();
-//application-level middleware
 app.use(express.json());
 
-//Routes
 app.use('/api/users',userRouter)
 
-app.get('/', (req,res)=>  {
+app.get('/test', (req,res)=>  {
   //const error = createHttpError(400,'erroring');
+  console.log('hit test route');
   //throw error
-  res.status(200).send({message:'success get route response'})
+  res.status(200).send({message:'"success" /test api working'})
 });
 
 
 //Global error-handler
 app.use(globalErrorHandler);
-
-//mongodb+srv://akshaykrishna24996:pass24996@cluster0.5ku6c.mongodb.net/
