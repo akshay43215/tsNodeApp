@@ -9,11 +9,8 @@ app.use(express.json());
 
 app.use('/api/users',userRouter)
 
-app.get('/test', (req,res)=>  {
-  //const error = createHttpError(400,'erroring');
-  console.log('hit test route');
-  //throw error
-  res.status(200).send({message:'"success" /test api working'})
+app.get('/', (req,res)=>  {
+  res.status(200).send({message:'success test api working'})
 });
 
 
