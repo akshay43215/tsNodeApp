@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tsc",
     "dev": "nodemon netlify/functions/server.ts",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "serve": "netlify dev",
+    "deploy": "netlify deploy --prod"
   },
   "keywords": [],
   "author": "",
